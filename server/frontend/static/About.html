@@ -1,68 +1,25 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Cars Dealership</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <style>body{background:#f6fafb;color:#193044}.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin:2rem 0}.team .card{margin:0;border:1px solid #dce7ea;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px #15334712}.team img{width:100%;height:240px;object-fit:cover}.team .card-body{padding:1.25rem}.hero{background:#d9f7f5;padding:3rem 1rem;text-align:center}.hero p{max-width:700px;margin:auto}</style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
-
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
-
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
-
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise">
+  <div class="container-fluid"><a class="navbar-brand fw-bold" href="/">Cars Dealership</a><div class="navbar-nav"><a class="nav-link" href="/">Home</a><a class="nav-link active" aria-current="page" href="/about">About Us</a><a class="nav-link" href="/contact">Contact Us</a></div></div>
+</nav>
+<header class="hero"><h1>About Us</h1><p>We help drivers compare dealerships and learn from honest customer reviews. Explore branches by state, read experiences, and share your own visit.</p></header>
+<main class="container py-4">
+  <h2>Meet the project team</h2><p>Illustrative profiles for the capstone demonstration.</p>
+  <div class="team">
+    <article class="card"><img src="https://i.pravatar.cc/360?img=47" alt="Portrait of Maya Carter"><div class="card-body"><h3>Maya Carter</h3><p class="fw-semibold">Customer Experience Lead</p><p>Maya turns customer feedback into clearer dealer listings and a smoother review experience.</p><a href="mailto:maya.carter@example.com">maya.carter@example.com</a></div></article>
+    <article class="card"><img src="https://i.pravatar.cc/360?img=12" alt="Portrait of Daniel Brooks"><div class="card-body"><h3>Daniel Brooks</h3><p class="fw-semibold">Dealership Relations Manager</p><p>Daniel coordinates branch information and helps keep location details useful for drivers.</p><a href="mailto:daniel.brooks@example.com">daniel.brooks@example.com</a></div></article>
+    <article class="card"><img src="https://i.pravatar.cc/360?img=44" alt="Portrait of Sofia Nguyen"><div class="card-body"><h3>Sofia Nguyen</h3><p class="fw-semibold">Product Engineer</p><p>Sofia builds the responsive app and the services that power search, accounts, and reviews.</p><a href="mailto:sofia.nguyen@example.com">sofia.nguyen@example.com</a></div></article>
+  </div>
+</main>
+</body>
 </html>
