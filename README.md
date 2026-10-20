@@ -1,9 +1,9 @@
-# Cars Dealership Review Portal
+# fullstack_developer_capstone
 
-**Repository:** `car-dealership-capstone`  
-**Project name:** Cars Dealership Review Portal
+**Project name:** `fullstack_developer_capstone`  
+**Repository:** `xrwvm-fullstack_developer_capstone`
 
-IBM Full-Stack Development Capstone project. This repository is a fork of the [IBM Skills Network starter](https://github.com/ibm-developer-skills-network/xrwvm-fullstack_developer_capstone). The application is intended to let users browse U.S. dealerships, filter by state, view reviews, register, sign in, and post reviews.
+IBM Full-Stack Development Capstone: Cars Dealership Review Portal. This is a fork of the [IBM Skills Network starter](https://github.com/ibm-developer-skills-network/xrwvm-fullstack_developer_capstone). The application lets users browse U.S. dealerships, filter by state, view reviews, register, sign in, and post reviews.
 
 ## Components
 
@@ -14,4 +14,4 @@ IBM Full-Stack Development Capstone project. This repository is a fork of the [I
 
 ## Status
 
-The starter repository has been forked. Feature implementation and verification are in progress.
+Feature implementation and verification are in progress.
