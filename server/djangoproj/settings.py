@@ -29,6 +29,13 @@ DEBUG = os.getenv('DJANGO_DEBUG', '1') == '1'
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver').split(',')
 CSRF_TRUSTED_ORIGINS = [value for value in os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',') if value]
+render_hostname = os.getenv('RENDER_EXTERNAL_HOSTNAME')
+if render_hostname:
+    ALLOWED_HOSTS.append(render_hostname)
+    CSRF_TRUSTED_ORIGINS.append(f'https://{render_hostname}')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],

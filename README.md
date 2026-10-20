@@ -43,3 +43,5 @@ The GitHub Actions workflow runs these checks on pushes and pull requests.
 Set `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=0`, `DJANGO_ALLOWED_HOSTS`, and `DJANGO_CSRF_TRUSTED_ORIGINS` for the deployed host. Build React, run migrations, and collect static files before starting Django with Gunicorn. The optional `backend_url` and `sentiment_analyzer_url` variables point Django to the Express and Flask services. Do not use the development secret key in a public deployment.
 
 A root `Dockerfile` builds React, collects static files, migrates SQLite, seeds sample cars, and starts Gunicorn. A persistent database should replace SQLite for a long-lived deployment.
+
+For a free demo deployment, create a Render Blueprint from this repository's `render.yaml`. The Blueprint builds the root Dockerfile, generates `DJANGO_SECRET_KEY`, and sets `DJANGO_DEBUG=0`. Render supplies `RENDER_EXTERNAL_HOSTNAME`, which Django adds to its allowed hosts and trusted CSRF origins. The free web service uses ephemeral SQLite storage: user accounts and new reviews can disappear after a restart or redeploy.
