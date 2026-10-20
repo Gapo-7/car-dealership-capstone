@@ -29,6 +29,8 @@ export default function Register() {
         throw new Error(result.error || "Registration failed. Please check your details.");
       }
       sessionStorage.setItem("username", result.userName);
+      sessionStorage.setItem("firstname", result.firstName);
+      sessionStorage.setItem("lastname", result.lastName);
       window.location.assign("/dealers");
     } catch (cause) {
       setError(cause.message);

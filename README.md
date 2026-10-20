@@ -12,6 +12,34 @@ IBM Full-Stack Development Capstone: Cars Dealership Review Portal. This is a fo
 - Express and MongoDB dealership service
 - Flask sentiment analysis service
 
-## Status
+## Run locally
 
-Feature implementation and verification are in progress.
+```bash
+python -m pip install -r server/requirements.txt
+cd server/frontend && npm ci && npm run build && cd ../..
+cd server
+python manage.py migrate
+python manage.py shell -c "from djangoapp.populate import initiate; initiate()"
+python manage.py runserver
+```
+
+The application opens at `http://127.0.0.1:8000/`. It serves the built React app on `/register`, `/login`, `/dealers`, `/dealer/<id>`, and `/postreview/<id>`. The Home, About, and Contact pages are Django templates. The dealership API uses bundled sample data when the Express service is unavailable, so browsing works without MongoDB. New reviews are stored in SQLite.
+
+Optional Express API: run `npm install && node app.js` from `server/database`. It uses bundled JSON data by default, or MongoDB when `MONGODB_URL` is set. Optional sentiment API: install `server/djangoapp/microservices/requirements.txt` and run `python app.py` from that directory. The bundled VADER lexicon allows offline sentiment analysis.
+
+## Verify
+
+```bash
+cd server
+python manage.py check
+python manage.py test djangoapp
+cd frontend && npm ci && npm run build
+```
+
+The GitHub Actions workflow runs these checks on pushes and pull requests.
+
+## Deployment configuration
+
+Set `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=0`, `DJANGO_ALLOWED_HOSTS`, and `DJANGO_CSRF_TRUSTED_ORIGINS` for the deployed host. Build React, run migrations, and collect static files before starting Django with Gunicorn. The optional `backend_url` and `sentiment_analyzer_url` variables point Django to the Express and Flask services. Do not use the development secret key in a public deployment.
+
+A root `Dockerfile` builds React, collects static files, migrates SQLite, seeds sample cars, and starts Gunicorn. A persistent database should replace SQLite for a long-lived deployment.

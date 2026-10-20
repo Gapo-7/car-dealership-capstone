@@ -8,6 +8,21 @@
   width: 30%;
 }
 
+.register_panel {
+  max-width: 520px;
+  margin: 48px auto;
+  padding: 32px;
+  background: #f4fcfc;
+  border: 1px solid #b4e5e5;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .09);
+}
+.register_panel form { display: grid; gap: 10px; }
+.register_panel label { font-weight: 600; }
+.register_panel input { padding: 10px; border: 1px solid #999; border-radius: 5px; }
+.register_panel button { margin-top: 14px; padding: 12px; background: darkturquoise; border: 0; border-radius: 5px; cursor: pointer; }
+.register_panel [role="alert"] { color: #a30000; }
+
 .inputs{
   display: flex;
   flex-direction: column;
