@@ -24,39 +24,33 @@ const Dealer = () => {
   let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
   let post_review = root_url+`postreview/${id}`;
   
-  const get_dealer = async ()=>{
-    const res = await fetch(dealer_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if(retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
-      setDealer(dealerobjs[0])
-    }
-  }
-
-  const get_reviews = async ()=>{
-    const res = await fetch(reviews_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if(retobj.status === 200) {
-      if(retobj.reviews.length > 0){
-        setReviews(retobj.reviews)
-      } else {
-        setUnreviewed(true);
-      }
-    }
-  }
-
   const senti_icon = (sentiment)=>{
     let icon = sentiment === "positive"?positive_icon:sentiment==="negative"?negative_icon:neutral_icon;
     return icon;
   }
 
   useEffect(() => {
+    const get_dealer = async () => {
+      const res = await fetch(dealer_url, { method: "GET" });
+      const retobj = await res.json();
+      if (retobj.status === 200) {
+        const dealerobjs = Array.from(retobj.dealer);
+        setDealer(dealerobjs[0]);
+      }
+    };
+
+    const get_reviews = async () => {
+      const res = await fetch(reviews_url, { method: "GET" });
+      const retobj = await res.json();
+      if (retobj.status === 200) {
+        if (retobj.reviews.length > 0) {
+          setReviews(Array.from(retobj.reviews));
+        } else {
+          setUnreviewed(true);
+        }
+      }
+    };
+
     get_dealer();
     get_reviews();
     if(sessionStorage.getItem("username")) {
@@ -64,7 +58,7 @@ const Dealer = () => {
 
       
     }
-  },[]);  
+  }, [dealer_url, reviews_url, post_review]);
 
 
 return(

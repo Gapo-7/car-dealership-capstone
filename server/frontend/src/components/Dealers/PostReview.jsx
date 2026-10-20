@@ -62,32 +62,25 @@ const PostReview = () => {
   }
 
   }
-  const get_dealer = async ()=>{
-    const res = await fetch(dealer_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if(retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
-      if(dealerobjs.length > 0)
-        setDealer(dealerobjs[0])
-    }
-  }
-
-  const get_cars = async ()=>{
-    const res = await fetch(carmodels_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    let carmodelsarr = Array.from(retobj.CarModels)
-    setCarmodels(carmodelsarr)
-  }
   useEffect(() => {
+    const get_dealer = async () => {
+      const res = await fetch(dealer_url, { method: "GET" });
+      const retobj = await res.json();
+      if (retobj.status === 200) {
+        const dealerobjs = Array.from(retobj.dealer);
+        if (dealerobjs.length > 0) setDealer(dealerobjs[0]);
+      }
+    };
+
+    const get_cars = async () => {
+      const res = await fetch(carmodels_url, { method: "GET" });
+      const retobj = await res.json();
+      setCarmodels(Array.from(retobj.CarModels));
+    };
+
     get_dealer();
     get_cars();
-  },[]);
+  }, [dealer_url, carmodels_url]);
 
 
   return (
